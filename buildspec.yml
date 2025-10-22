@@ -12,5 +12,9 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync ./dist s3://soldesk-soldesk-bucket-1
-
+      - echo POST BUILDING...
+artifacts: # 빌드 결과물을 지정하는 항목
+  files:
+    - 'dist/**/*'
+    - appspec.yml
+    - scripts/*
